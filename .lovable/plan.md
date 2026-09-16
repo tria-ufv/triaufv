@@ -1,69 +1,84 @@
-# Site TrIA — construído para ser fácil de editar
+# Site TrIA — landing page da UFV, construída para ser fácil de editar
 
-Objetivo: uma landing page institucional da TrIA que qualquer pessoa com noções básicas de HTML, CSS e JavaScript consiga editar sem se perder.
+Primeira versão: uma landing page única, sem banco de dados, sem login, com todo o conteúdo mutável concentrado em arquivos de configuração — para que alguém com noções básicas de HTML, CSS e JavaScript consiga manter o site.
 
-## Princípio central: texto separado do layout
+## 1. Facilidade de edição (requisito principal)
 
-Todo o conteúdo do site (títulos, parágrafos, botões, módulos da trilha, FAQ, rodapé) fica em **um único arquivo de conteúdo**, escrito em português, com comentários explicando cada campo. Para trocar uma frase, um preço ou um item do FAQ, a pessoa mexe só nesse arquivo — nunca no layout.
+**Textos e links em arquivos de configuração**
 
-Exemplo do que a pessoa vê nesse arquivo:
+- `src/config/site.ts` — marca, assinatura, CTA principal (rótulo + link), CTA secundário, dados do curso (240h, 20 semanas, 6 meses, modalidade), captura de e-mail (provedor + endpoint), links do rodapé.
+- `src/config/course.ts` — os 4 módulos (número, nome, carga horária, resumo, 3–5 tópicos), fatos do "Como funciona", lista "O que você recebe", "Para quem é", FAQ.
+- `src/config/copy.ts` — títulos e parágrafos de cada seção (hero, faixa de confiança, por que TrIA, trilha, institucional, conversão).
 
-```text
-hero: {
-  chapeu: "Trilha de IA — UFV/DPI",
-  titulo: "Entenda IA além do superficial.",
-  texto: "...",
-  botaoPrincipal: { rotulo: "Quero me inscrever", link: "#inscricao" },
-}
-```
+Nenhum componente terá texto de botão ou preço escrito à mão: todos leem `siteConfig.primaryCTA.label` / `.href`.
 
-## Cores e fontes em um só lugar
-
-Um bloco de variáveis CSS no topo do arquivo de estilos concentra a paleta e as fontes:
+**Cores e fontes em um só lugar** — variáveis CSS no topo de `src/styles.css`:
 
 ```text
---cor-preto: #000000
---cor-branco: #FFFFFF
---cor-amarelo: #EAB20B   /* CTA, destaques da trilha */
---cor-azul:   #215780    /* institucional UFV/DPI */
---fonte-titulo: "League Spartan"
---fonte-texto:  Arial
+--cor-branco: #FFFFFF   --cor-preto: #000000
+--cor-amarelo: #EAB20B  --cor-azul: #215780
+--font-display: "League Spartan", "Arial Black", Arial, sans-serif
+--font-body: Arial, Helvetica, sans-serif
 ```
 
-Trocar o amarelo em um lugar muda o site inteiro. Proporção mantida: 70–80% branco/preto, 10–15% azul, 5–10% amarelo. Cantos discretos (4–10px), sombras mínimas, sem neon ou gradientes.
+**Uma seção = um arquivo**, com nome óbvio e comentários curtos em português.
 
-## Uma seção = um arquivo
+**`COMO-EDITAR.md`** na raiz: onde trocar textos, cores, logo, link de compra, como adicionar módulo ou pergunta do FAQ.
 
-Cada faixa da página fica em seu próprio arquivo com nome óbvio (`Cabecalho`, `Hero`, `PorQueTria`, `Trilha`, `ComoFunciona`, `OQueVoceRecebe`, `ParaQuem`, `Ufv`, `Faq`, `Inscricao`, `Rodape`). A página principal só lista as seções na ordem, então reordenar ou remover uma seção é mover/apagar uma linha.
+**Placeholders intencionais** onde falta confirmação: `COLOCAR_LINK_DE_COMPRA_AQUI`, `COLOCAR_ENDPOINT_AQUI`, `COLOCAR_DATA_DA_TURMA`, `COLOCAR_PRECO`.
 
-Cada arquivo usa HTML e classes de estilo diretas, sem camadas de abstração, com comentários curtos em português.
+## 2. Identidade visual
 
-## Páginas
+- Predominância branco/preto (70–80%), azul institucional 10–15%, amarelo 5–10% (CTA, marcadores da trilha, estados ativos).
+- Amarelo sempre com texto preto; azul em bloco grande com texto branco.
+- Cantos discretos: botões/campos 4–6px, cards 6–10px. Sem pills grandes.
+- Sombras mínimas: preferir bordas de 1px e divisórias.
+- Sem neon, cyberpunk, gradientes exagerados, ícones infantis ou foto genérica de "pessoa no notebook". Hero tipográfico com o grafismo da marca.
 
-- `/` landing page completa
-- `/privacidade`
-- `/termos`
+## 3. Logo e animação
 
-## Logo, favicon e marca
+- Componente `BrandLogo` que aponta para o arquivo de logo, fácil de trocar depois pelos SVGs oficiais.
+- A logo enviada entra no cabeçalho, no hero e no rodapé, e vira o ícone da aba do navegador.
+- O "cérebro" é o único elemento de movimento: pontos aparecem com opacidade + deslocamento e se organizam, terminando em 800–1400 ms. Sem splash, sem vídeo, sem partículas pela página.
+- Motivo gráfico reaproveitado como nós/linha da trilha e marcador dos módulos.
+- `prefers-reduced-motion`: animações decorativas desligadas.
 
-A logo enviada entra no cabeçalho e no rodapé, e a mesma imagem vira o ícone da aba do navegador. O “cérebro” aparece como detalhe gráfico discreto, com uma animação suave de entrada (respeitando quem prefere menos movimento).
+## 4. Estrutura da página inicial
 
-## Conteúdo
+1. **Header** — logo, âncoras (Sobre, Trilha, Como funciona, UFV, Dúvidas), botão "Garantir minha vaga". Fixo após pequeno scroll, fundo branco, borda inferior fina, menu mobile em drawer simples.
+2. **Hero** — eyebrow, "Entenda IA além do superficial.", texto de apoio, dois CTAs, provas rápidas (240 horas, a distância, encontros síncronos, monitoria, certificação UFV).
+3. **Faixa de confiança** — fundo preto, texto branco, detalhe amarelo.
+4. **Por que TrIA?** — "IA não começa no prompt." + três pilares (01 Entender, 02 Experimentar, 03 Aplicar) em colunas retas com numeração grande e borda superior.
+5. **A trilha** — "Uma trilha. Quatro etapas." Linha horizontal no desktop, vertical no mobile; cada módulo com número, nome, 60h, resumo e tópicos em accordion (fechados por padrão).
+6. **Como funciona** — grade compacta: 240 horas, 20 semanas, a distância, monitoria, 6 meses, certificação UFV. Sem datas (a de 2025 fica fora).
+7. **O que você recebe** — lista em duas colunas: apostilas, aulas narradas, notebooks no Colab, exercícios, atividades abertas, guia de estudos, encontros síncronos, monitoria.
+8. **Para quem é** — texto + blocos "Você não precisa" / "Você precisa".
+9. **UFV e DPI** — bloco azul com o texto institucional e link para o Departamento de Informática. Sem logos UFV/DPI até haver autorização e arquivos oficiais.
+10. **Conversão** — "Sua trilha pode começar aqui." + CTA. Preço, datas e vagas ficam desligados por configuração até confirmação.
+11. **Captura de e-mail** — nome (opcional), e-mail (obrigatório), checkbox de consentimento, microcopy com link para a Política de Privacidade. Envia para o endpoint configurado; nenhuma chave no site.
+12. **Rodapé** — marca, assinatura, vínculo institucional, links para privacidade e termos, contato.
+13. **Aviso de cookies** — simples, só ativado se analytics for configurado; nenhum rastreador ligado por padrão.
 
-Uso dos textos do documento enviado: headline “Entenda IA além do superficial.”, os três pilares (Entender, Experimentar, Aplicar), os 4 módulos da trilha (Programação, Visualização de Dados, Aprendizagem de Máquina, Aprendizagem Profunda), como funciona (240 horas, 20 semanas, a distância, monitoria, certificação UFV) e o FAQ. Sem promessas exageradas.
+## 5. Páginas
 
-Itens ainda em aberto no documento (preço, datas, link de checkout, e-mail de contato) entram como marcadores claros e comentados, para você substituir depois — vou listá-los no final para você conferir.
+`/` (landing), `/privacidade`, `/termos`. Nada de `/curso`, `/equipe` ou `/faq` nesta versão.
 
-## Um arquivo LEIA-ME de edição
+## 6. SEO, acessibilidade, desempenho
 
-Um `COMO-EDITAR.md` na raiz explica em linguagem simples: onde trocar textos, onde trocar cores, onde trocar a logo, como adicionar um módulo ou uma pergunta do FAQ.
+- Title "TrIA — Programação, Dados e Inteligência Artificial | UFV" e a meta description do documento; Open Graph e Twitter em cada página.
+- Dados estruturados Schema.org `Course` + `Organization`, sem preço, datas ou oferta enquanto não confirmados.
+- HTML semântico, hierarquia de títulos, labels, foco visível, navegação por teclado, contraste AA, `alt` adequado.
+- Grafismos em SVG, fontes com `font-display: swap`, imagens com lazy loading, animações em CSS.
 
-## Detalhes técnicos
+## 7. Pendências que ficam marcadas no site como placeholder
 
-- TanStack Start + React + Tailwind (stack fixa do projeto); classes de utilitário legíveis, sem componentes genéricos extras.
-- `src/content/site.ts` — objeto único, tipado de forma leve, com todo o texto.
-- `src/components/sections/*.tsx` — uma seção por arquivo, sem lógica.
-- `src/styles.css` — tokens da paleta TrIA mapeados nos tokens semânticos existentes; fontes via `<link>` no `__root.tsx`.
-- Rotas: `src/routes/index.tsx` (substitui o placeholder), `privacidade.tsx`, `termos.tsx`, cada uma com `head()` próprio (title, description, og/twitter).
-- Sem backend nesta versão: o formulário/CTA aponta para link externo configurável no arquivo de conteúdo.
-- Acessibilidade: contraste, foco visível, `alt` nas imagens, `prefers-reduced-motion`.
+Preço, parcelamento, link de checkout, vagas, datas de abertura/início, política de cancelamento, plataforma de e-mail e endpoint do formulário, analytics, uso das marcas UFV/DPI, conteúdo final da Unidade 6 do Módulo 1. Vou listar todas ao final para você preencher.
+
+## 8. Detalhes técnicos
+
+- Stack fixa do projeto: TanStack Start + React + TypeScript + Tailwind v4. Sem backend, sem autenticação, sem CMS.
+- A estrutura do documento (`pages/`, `App.tsx`, `styles/globals.css`) é adaptada às rotas do TanStack: `src/routes/index.tsx` (substitui o placeholder), `src/routes/privacidade.tsx`, `src/routes/termos.tsx`, cada uma com `head()` próprio.
+- Componentes: `Header`, `MobileMenu`, `BrandLogo`, `Hero`, `TrustStrip`, `SectionHeading`, `WhyTria`, `LearningPath` + `ModuleCard`, `CourseFacts`, `MaterialsSection`, `AudienceSection`, `InstitutionSection`, `LeadCaptureForm`, `PurchaseCTA`, `FAQ`, `Footer`, `CookieConsent`.
+- `src/integrations/emailMarketing.ts` e `analytics.ts` isolam provedores; o formulário só conhece a função de envio.
+- Tokens da paleta TrIA em `src/styles.css` mapeados nos tokens semânticos existentes; League Spartan carregada via `<link>` no `__root.tsx`.
+- Build padrão `npm run build` (saída estática) mantendo o projeto exportável e independente da hospedagem.
