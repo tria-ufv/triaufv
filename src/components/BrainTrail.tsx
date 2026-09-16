@@ -26,17 +26,16 @@ export function BrainTrail({ className = "" }: { className?: string }) {
       className={className}
     >
       <g stroke="currentColor" strokeWidth="1" fill="none" opacity="0.55">
-        {nos.slice(0, -1).map(([x, y], i) => {
-          const [nx, ny] = nos[i + 1];
-          return <line key={`l-${i}`} x1={x} y1={y} x2={nx} y2={ny} />;
-        })}
-        <polyline className="tria-linha" points={nos.map(([x, y]) => `${x},${y}`).join(" ")} />
+        {linhas.map((l, i) => (
+          <line key={`l-${i}`} x1={l.de.x} y1={l.de.y} x2={l.para.x} y2={l.para.y} />
+        ))}
+        <polyline className="tria-linha" points={nos.map((n) => `${n.x},${n.y}`).join(" ")} />
       </g>
-      {nos.map(([x, y], i) => (
+      {nos.map((n, i) => (
         <circle
           key={`c-${i}`}
-          cx={x}
-          cy={y}
+          cx={n.x}
+          cy={n.y}
           r={i % 3 === 0 ? 7 : 4.5}
           fill={i % 3 === 0 ? "var(--cor-amarelo)" : "currentColor"}
           className="tria-no"

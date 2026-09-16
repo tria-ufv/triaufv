@@ -8,7 +8,7 @@
 import { siteConfig } from "@/config/site";
 
 export type Lead = {
-  name?: string;
+  name?: string | undefined;
   email: string;
   consent: boolean;
 };
