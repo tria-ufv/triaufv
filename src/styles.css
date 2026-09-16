@@ -61,40 +61,55 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ==========================================================================
+   CORES E FONTES DA TrIA — MUDE AQUI
+   Troque um valor abaixo e ele muda em todo o site.
+   ========================================================================== */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --cor-branco: #ffffff;
+  --cor-preto: #000000;
+  --cor-amarelo: #eab20b; /* botão principal, destaques da trilha */
+  --cor-azul: #215780; /* bloco institucional UFV/DPI, links secundários */
+
+  --font-display: "League Spartan", "Arial Black", Arial, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
+
+  /* Cantos discretos (evitar formas muito arredondadas) */
+  --radius: 6px;
+
+  /* Tokens usados pelos componentes — derivados das cores acima */
+  --background: var(--cor-branco);
+  --foreground: var(--cor-preto);
+  --card: var(--cor-branco);
+  --card-foreground: var(--cor-preto);
+  --popover: var(--cor-branco);
+  --popover-foreground: var(--cor-preto);
+  --primary: var(--cor-amarelo);
+  --primary-foreground: var(--cor-preto);
+  --secondary: var(--cor-azul);
+  --secondary-foreground: var(--cor-branco);
+  --muted: #f4f4f4;
+  --muted-foreground: #4a4a4a;
+  --accent: var(--cor-amarelo);
+  --accent-foreground: var(--cor-preto);
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --destructive-foreground: var(--cor-branco);
+  --border: #e2e2e2;
+  --input: #cfcfcf;
+  --ring: var(--cor-azul);
+  --chart-1: var(--cor-amarelo);
+  --chart-2: var(--cor-azul);
+  --chart-3: var(--cor-preto);
+  --chart-4: #7a7a7a;
+  --chart-5: #c9c9c9;
+  --sidebar: var(--cor-branco);
+  --sidebar-foreground: var(--cor-preto);
+  --sidebar-primary: var(--cor-amarelo);
+  --sidebar-primary-foreground: var(--cor-preto);
+  --sidebar-accent: #f4f4f4;
+  --sidebar-accent-foreground: var(--cor-preto);
+  --sidebar-border: #e2e2e2;
+  --sidebar-ring: var(--cor-azul);
 }
 
 .dark {
@@ -132,6 +147,11 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+@theme inline {
+  --font-titulo: var(--font-display);
+  --font-texto: var(--font-body);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -140,5 +160,61 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  /* Foco sempre visível (acessibilidade) */
+  :focus-visible {
+    outline: 2px solid var(--cor-azul);
+    outline-offset: 2px;
   }
 }
+
+/* Animação de entrada dos pontos do "cérebro" (curta, 800–1400 ms) */
+@keyframes tria-no {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tria-linha {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@utility tria-no {
+  animation: tria-no 700ms ease-out both;
+}
+
+@utility tria-linha {
+  stroke-dasharray: 240;
+  animation: tria-linha 1200ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
