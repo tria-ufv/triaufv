@@ -2,18 +2,20 @@
  * Grafismo da marca: pontos conectados que sugerem o "cérebro" e a trilha.
  * Os pontos aparecem suavemente ao carregar (animação curta).
  */
-const nos = [
-  [40, 120],
-  [95, 60],
-  [150, 105],
-  [205, 45],
-  [250, 110],
-  [120, 175],
-  [200, 165],
-  [60, 205],
-  [165, 235],
-  [255, 200],
+const nos: Array<{ x: number; y: number }> = [
+  { x: 40, y: 120 },
+  { x: 95, y: 60 },
+  { x: 150, y: 105 },
+  { x: 205, y: 45 },
+  { x: 250, y: 110 },
+  { x: 120, y: 175 },
+  { x: 200, y: 165 },
+  { x: 60, y: 205 },
+  { x: 165, y: 235 },
+  { x: 255, y: 200 },
 ];
+
+const linhas = nos.slice(1).map((no, i) => ({ de: nos[i]!, para: no }));
 
 export function BrainTrail({ className = "" }: { className?: string }) {
   return (
