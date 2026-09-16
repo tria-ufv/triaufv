@@ -147,6 +147,11 @@
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
 
+@theme inline {
+  --font-titulo: var(--font-display);
+  --font-texto: var(--font-body);
+}
+
 @layer base {
   * {
     border-color: var(--color-border);
@@ -155,5 +160,61 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+
+  /* Foco sempre visível (acessibilidade) */
+  :focus-visible {
+    outline: 2px solid var(--cor-azul);
+    outline-offset: 2px;
   }
 }
+
+/* Animação de entrada dos pontos do "cérebro" (curta, 800–1400 ms) */
+@keyframes tria-no {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tria-linha {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@utility tria-no {
+  animation: tria-no 700ms ease-out both;
+}
+
+@utility tria-linha {
+  stroke-dasharray: 240;
+  animation: tria-linha 1200ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
