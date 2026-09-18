@@ -12,11 +12,25 @@ export const copy = {
   },
 
   hero: {
-    eyebrow: "FORMAÇÃO EM PROGRAMAÇÃO, DADOS E INTELIGÊNCIA ARTIFICIAL",
-    title: "Entenda IA além do superficial.",
-    text: "Uma trilha da Universidade Federal de Viçosa para quem quer construir fundamentos em programação, dados, aprendizagem de máquina e inteligência artificial — mesmo começando sem experiência prévia em programação.",
+    eyebrow: "Uma trilha desenvolvida por mestres e doutores em computação da UFV",
+    title: "Seu ponto de partida para entender e trabalhar com Inteligência Artificial.",
+    text: "Aprenda com quem pesquisa, ensina e trabalha com Computação dentro da universidade. A TrIA reúne professores e pesquisadores do DPI/UFV em uma formação pensada para aproximar a Inteligência Artificial de profissionais e estudantes de diferentes áreas.",
     proofs: ["240 horas", "Ensino a distância", "Encontros síncronos", "Monitoria", "Certificação UFV"],
+    // Card informativo abaixo dos botões (estrutura real do curso)
+    card: {
+      title: "O que você encontra na trilha",
+      items: [
+        { destaque: "240 horas", texto: "Carga horária total, distribuída em 4 módulos de 60 horas." },
+        { destaque: "4 módulos práticos", texto: "Dos fundamentos de programação à aprendizagem profunda." },
+        { destaque: "Certificação UFV", texto: "Certificado emitido pela Universidade Federal de Viçosa." },
+        {
+          destaque: "Professores do DPI/UFV",
+          texto: "Encontros síncronos e monitoria com pesquisadores da área.",
+        },
+      ],
+    },
   },
+
 
   trust:
     "Curso certificado pela Universidade Federal de Viçosa, desenvolvido com participação de professores e pesquisadores das áreas de Computação, Sistemas de Informação e Engenharia de Computação.",
