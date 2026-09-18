@@ -74,8 +74,9 @@
   --font-display: "League Spartan", "Arial Black", Arial, sans-serif;
   --font-body: Arial, Helvetica, sans-serif;
 
-  /* Cantos discretos (evitar formas muito arredondadas) */
-  --radius: 6px;
+  /* Cantos suaves */
+  --radius: 10px;
+
 
   /* Tokens usados pelos componentes — derivados das cores acima */
   --background: var(--cor-branco);
@@ -84,10 +85,11 @@
   --card-foreground: var(--cor-preto);
   --popover: var(--cor-branco);
   --popover-foreground: var(--cor-preto);
-  --primary: var(--cor-amarelo);
-  --primary-foreground: var(--cor-preto);
+  --primary: var(--cor-azul); /* cor principal: botões e destaques */
+  --primary-foreground: var(--cor-branco);
   --secondary: var(--cor-azul);
   --secondary-foreground: var(--cor-branco);
+
   --muted: #f4f4f4;
   --muted-foreground: #4a4a4a;
   --accent: var(--cor-amarelo);

@@ -25,7 +25,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
         <a href="/" aria-label="TrIA — página inicial">
-          <BrandLogo className="h-9" />
+          <BrandLogo className="h-14 md:h-16" />
         </a>
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Menu principal">
