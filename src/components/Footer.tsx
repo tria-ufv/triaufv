@@ -8,9 +8,8 @@ export function Footer() {
     <footer className="bg-black text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <div className="bg-white p-3 inline-block">
-            <BrandLogo className="h-12" />
-          </div>
+          {/* "invert" deixa a logo branca e o fundo dela preto, igual ao rodapé */}
+          <BrandLogo className="h-16 invert" />
           <p className="mt-4 text-sm text-white/70">{siteConfig.brand.tagline}</p>
         </div>
 
@@ -40,7 +39,7 @@ export function Footer() {
                 Termos de Uso
               </Link>
             </li>
-            <li>Contato: {siteConfig.links.email}</li>
+            <li>Contato: <a href={`mailto:${siteConfig.links.email}`} className="underline">{siteConfig.links.email}</a></li>
           </ul>
         </div>
       </div>

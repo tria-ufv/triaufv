@@ -4,6 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { copy } from "@/config/copy";
 import { faq } from "@/config/course";
 import { SectionHeading } from "./SectionHeading";
+import { siteConfig } from "@/config/site";
 
 export function FAQ() {
   const [aberta, setAberta] = useState<number | null>(0);
@@ -39,6 +40,13 @@ export function FAQ() {
             );
           })}
         </div>
+
+        <p className="mt-10 text-center text-sm text-muted-foreground">
+          Está com dúvidas e não achou as informações aqui? Mande um e-mail para{" "}
+          <a href={`mailto:${siteConfig.links.email}`} className="font-semibold text-primary underline">
+            {siteConfig.links.email}
+          </a>
+        </p>
       </div>
     </section>
   );

@@ -11,7 +11,6 @@ import { MaterialsSection } from "@/components/MaterialsSection";
 import { AudienceSection } from "@/components/AudienceSection";
 import { InstitutionSection } from "@/components/InstitutionSection";
 import { PurchaseCTA } from "@/components/PurchaseCTA";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -64,7 +63,6 @@ function Home() {
         <AudienceSection />
         <InstitutionSection />
         <PurchaseCTA />
-        <LeadCaptureForm />
         <FAQ />
       </main>
       <Footer />

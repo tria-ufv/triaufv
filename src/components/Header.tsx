@@ -11,7 +11,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 420);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -25,7 +25,7 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
         <a href="/" aria-label="TrIA — página inicial">
-          <BrandLogo className="h-14 md:h-16" />
+          <BrandLogo className={`h-14 md:h-16 transition-opacity duration-300 ${scrolled ? "opacity-100" : "pointer-events-none opacity-0"}`} />
         </a>
 
         <nav className="hidden items-center gap-7 md:flex" aria-label="Menu principal">
