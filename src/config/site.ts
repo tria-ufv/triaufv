@@ -66,6 +66,6 @@ export const siteConfig = {
   links: {
     dpi: "https://www.dpi.ufv.br/",
     ufv: "https://www.ufv.br/",
-    email: "COLOCAR_EMAIL_DE_CONTATO",
+    email: "contato.tria@ufv.br",
   },
 };

@@ -1,5 +1,35 @@
 # Como editar o site da TrIA
 
+## ⭐ Trocar o link de um botão pelo GitHub (passo a passo)
+
+Todos os links de botões ficam em UM arquivo: `src/config/site.ts`.
+
+1. Abra o repositório do site no GitHub.
+2. Clique na pasta `src`, depois `config`, depois no arquivo `site.ts`.
+3. Clique no ícone de lápis (Edit this file), no canto superior direito.
+4. Ache o botão que quer mudar e troque só o texto entre aspas de `href`:
+
+| Botão | Onde no arquivo |
+| --- | --- |
+| "Garantir minha vaga" (topo, início e final da página) | `primaryCTA.href` |
+| "Conhecer a trilha" | `secondaryCTA.href` |
+| Itens do menu do topo | `nav` (cada linha tem `label` e `href`) |
+| Links da UFV e do DPI no rodapé | `links.ufv` e `links.dpi` |
+| E-mail de contato | `links.email` |
+
+Exemplo:
+```ts
+primaryCTA: {
+  label: "Garantir minha vaga",          // texto do botão
+  href: "https://seu-link-de-compra.com", // link do botão
+},
+```
+
+5. Clique no botão verde **Commit changes...** e confirme.
+6. Em poucos minutos o site é atualizado (publique novamente se necessário).
+
+Cuidado: não apague aspas, vírgulas nem chaves `{ }`.
+
 Guia rápido para quem tem noções básicas de HTML, CSS e JavaScript.
 Você quase nunca precisa mexer em código de layout: quase tudo está em 3 arquivos de texto.
 
@@ -82,7 +112,7 @@ Para reordenar, mova a linha. Para esconder uma seção, apague ou comente a lin
 Cada seção é um arquivo em `src/components/`:
 `Header`, `Hero`, `TrustStrip`, `WhyTria`, `LearningPath` (+ `ModuleCard`),
 `CourseFacts`, `MaterialsSection`, `AudienceSection`, `InstitutionSection`,
-`PurchaseCTA`, `LeadCaptureForm`, `FAQ`, `Footer`, `CookieConsent`.
+`PurchaseCTA`, `FAQ`, `Footer`, `CookieConsent`.
 
 As páginas ficam em `src/routes/`: `index.tsx` (inicial), `privacidade.tsx`, `termos.tsx`.
 
@@ -91,5 +121,5 @@ As páginas ficam em `src/routes/`: `index.tsx` (inicial), `privacidade.tsx`, `t
 Estes pontos estão marcados no código com `COLOCAR_...`:
 preço, parcelamento, link de checkout, vagas, datas de abertura e início,
 política de cancelamento, plataforma de e-mail e endpoint, analytics,
-e-mail de contato, autorização para usar as marcas UFV/DPI e o conteúdo final
+autorização para usar as marcas UFV/DPI e o conteúdo final
 da Unidade 6 do Módulo 1.
