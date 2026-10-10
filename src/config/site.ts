@@ -16,7 +16,7 @@ export const siteConfig = {
   // Troque o link aqui e ele muda em TODOS os lugares.
   primaryCTA: {
     label: "Garantir minha vaga",
-    href: "COLOCAR_LINK_DE_COMPRA_AQUI",
+    href: "https://eventos.funarbe.org.br/en/tria",
   },
 
   secondaryCTA: {
