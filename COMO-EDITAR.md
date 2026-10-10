@@ -50,11 +50,13 @@ Em `src/config/site.ts`:
 ```ts
 primaryCTA: {
   label: "Garantir minha vaga",
-  href: "COLOCAR_LINK_DE_COMPRA_AQUI",  // <- cole aqui o link do checkout
+  href: "https://eventos.funarbe.org.br/en/tria",  // <- cole aqui o link do checkout
 },
 ```
 
 O botão aparece no topo, no hero e no final da página — mudar aqui muda em todos.
+Hoje ele leva para a página de compra da TrIA na Funarbe
+(`https://eventos.funarbe.org.br/en/tria`) e abre em uma nova aba.
 
 ## 3. Mostrar preço, data e vagas
 
@@ -119,7 +121,9 @@ As páginas ficam em `src/routes/`: `index.tsx` (inicial), `privacidade.tsx`, `t
 ## 10. Ainda falta confirmar
 
 Estes pontos estão marcados no código com `COLOCAR_...`:
-preço, parcelamento, link de checkout, vagas, datas de abertura e início,
+preço, parcelamento, vagas, datas de abertura e início,
 política de cancelamento, plataforma de e-mail e endpoint, analytics,
 autorização para usar as marcas UFV/DPI e o conteúdo final
 da Unidade 6 do Módulo 1.
+
+O link de compra já está ligado: `https://eventos.funarbe.org.br/en/tria`.
