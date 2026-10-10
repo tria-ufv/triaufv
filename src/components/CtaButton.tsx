@@ -19,8 +19,15 @@ export function CtaButton({ href, children, variant = "principal", className = "
   } as const;
 
 
+  // Links externos (como a página de compra) abrem em uma nova aba.
+  const externo = /^https?:\/\//i.test(href);
+
   return (
-    <a href={href} className={`${base} ${estilos[variant]} ${className}`}>
+    <a
+      href={href}
+      {...(externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      className={`${base} ${estilos[variant]} ${className}`}
+    >
       {children}
     </a>
   );
