@@ -59,7 +59,7 @@ export const copy = {
   },
 
   materials: {
-    title: "Mais do que videoaulas.",
+    title: "O que está incluso na Trilha de Aprendizagem (TrIA)",
   },
 
   audience: {
@@ -76,8 +76,8 @@ export const copy = {
   },
 
   purchase: {
-    title: "Sua trilha pode começar aqui.",
-    text: "Veja as condições da turma atual e faça sua inscrição.",
+    title: "Sua Trilha de Aprendizagem começa aqui.",
+    text: "4 módulos completos — Programação, Visualização de Dados, Aprendizagem de Máquina e Aprendizagem Profunda — em uma única Trilha de Aprendizagem.",
   },
 
   lead: {

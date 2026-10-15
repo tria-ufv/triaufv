@@ -1,4 +1,4 @@
-/** Seção "O que você recebe". */
+/** Seção "O que está incluso na Trilha de Aprendizagem". */
 import { copy } from "@/config/copy";
 import { materials } from "@/config/course";
 import { SectionHeading } from "./SectionHeading";
@@ -9,11 +9,11 @@ export function MaterialsSection() {
       <div className="mx-auto max-w-6xl px-5 py-16 md:py-24">
         <SectionHeading title={copy.materials.title} />
 
-        <ul className="mt-12 grid gap-x-10 gap-y-4 sm:grid-cols-2">
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {materials.map((m) => (
-            <li key={m} className="flex items-start gap-3 border-b border-border pb-4 text-sm">
-              <span aria-hidden className="mt-1.5 size-2 shrink-0 bg-primary" />
-              {m}
+            <li key={m.title} className="rounded-[14px] border border-border bg-background p-6">
+              <p className="font-titulo text-lg font-bold text-secondary">{m.title}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.text}</p>
             </li>
           ))}
         </ul>
