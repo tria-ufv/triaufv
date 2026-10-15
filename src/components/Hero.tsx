@@ -3,6 +3,7 @@ import { copy } from "@/config/copy";
 import { siteConfig } from "@/config/site";
 import { BrandLogo } from "./BrandLogo";
 import { CtaButton } from "./CtaButton";
+import { UfvDiscount } from "./UfvDiscount";
 
 export function Hero() {
   return (
@@ -25,12 +26,19 @@ export function Hero() {
           {copy.hero.text}
         </p>
 
-        <div className="mt-9 flex flex-wrap justify-center gap-3">
+        <p className="mt-8 text-lg font-semibold">
+          Trilha de Aprendizagem: {siteConfig.commercial.highlight} —{" "}
+          <span className="text-secondary">{siteConfig.commercial.price}</span>{" "}
+          <span className="font-normal text-muted-foreground">{siteConfig.commercial.installments}</span>
+        </p>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
           <CtaButton href={siteConfig.primaryCTA.href}>{siteConfig.primaryCTA.label}</CtaButton>
           <CtaButton href={siteConfig.secondaryCTA.href} variant="secundario">
             {siteConfig.secondaryCTA.label}
           </CtaButton>
         </div>
+        <UfvDiscount />
 
         <div className="mx-auto mt-14 max-w-3xl rounded-[14px] border border-border bg-muted/40 p-6 text-left md:p-8">
           <p className="text-sm font-semibold uppercase tracking-[0.14em] text-secondary">

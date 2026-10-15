@@ -71,16 +71,42 @@ export const courseFacts = [
   { value: "Certificação UFV", label: "Certificação indicada no projeto do curso." },
 ];
 
-// Seção "O que você recebe"
+// Seção "O que está incluso na Trilha de Aprendizagem (TrIA)"
 export const materials = [
-  "Apostilas por módulo",
-  "Aulas narradas",
-  "Notebooks com exemplos práticos no Google Colab",
-  "Exercícios avaliativos",
-  "Atividades abertas com implementação",
-  "Guia de estudos",
-  "Encontros síncronos",
-  "Monitoria",
+  {
+    title: "Aulas Animadas (gravadas)",
+    text: "Slides interativos com explicação em áudio do professor. Estude no seu ritmo, no horário e no lugar que preferir.",
+  },
+  {
+    title: "Resolução de Exercícios ao Vivo: 1x por semana",
+    text: "20 encontros com os professores de cada módulo para corrigir os exercícios da apostila e tirar dúvidas com a turma.",
+  },
+  {
+    title: "Monitoria ao Vivo: 2x por semana",
+    text: "40 sessões com mestrandos e doutorandos em Ciência da Computação, prontos para ajudar com seus códigos e exercícios.",
+  },
+  {
+    title: "4 Apostilas Exclusivas (e-books)",
+    text: "Livros-texto digitais escritos sob medida pelos professores do DPI/UFV.",
+  },
+  {
+    title: "Notebooks Resolvidos no Google Colab",
+    text: "Todos os exercícios, abertos e fechados, resolvidos e comentados passo a passo em Python.",
+  },
+  {
+    title: "Certificado de Extensão da UFV",
+    text: "Emitido pela Universidade Federal de Viçosa ao final da trilha: 240 horas no total (60 h por módulo).",
+  },
+];
+
+// Tabela-resumo da seção de compra
+export const checkoutSummary = [
+  { item: "Aulas animadas", how: "Gravadas, no seu ritmo", freq: "4 módulos completos" },
+  { item: "Resolução de exercícios", how: "Ao vivo com professores", freq: "1x por semana (20 aulas)" },
+  { item: "Monitoria", how: "Ao vivo com monitores", freq: "2x por semana (40 sessões)" },
+  { item: "Apostilas", how: "E-books em PDF", freq: "4 apostilas" },
+  { item: "Exercícios resolvidos", how: "Notebooks no Google Colab", freq: "100% dos exercícios" },
+  { item: "Certificado UFV", how: "Digital", freq: "240 horas" },
 ];
 
 // Seção "Para quem é"
