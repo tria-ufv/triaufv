@@ -41,14 +41,22 @@ export const siteConfig = {
     format: "A distância",
   },
 
-  // Informações comerciais: mude "enabled" para true somente quando
-  // os dados estiverem confirmados oficialmente.
+  // Preço da Trilha de Aprendizagem (aparece na seção de compra)
   commercial: {
-    enabled: false,
-    price: "COLOCAR_PRECO",
-    startDate: "COLOCAR_DATA_DA_TURMA",
-    seats: "COLOCAR_NUMERO_DE_VAGAS",
+    price: "R$ 800",
+    installments: "ou 4x de R$ 200",
+    highlight: "4 cursos pelo valor de 1",
   },
+
+  // Desconto para comunidade UFV (alunos, servidores e terceirizados)
+  ufvDiscount: {
+    title: "É aluno ou servidor da UFV?",
+    text: "Você tem 10% de desconto na TrIA. Válido para os 100 primeiros.",
+    button: "Quero meu desconto",
+  },
+
+  // ID do Google Analytics
+  googleAnalyticsId: "G-2VDNZ2HSPS",
 
   // Formulário de e-mail. Coloque o endereço do formulário do seu
   // provedor (Mailchimp, Brevo, etc.) em "formAction".
