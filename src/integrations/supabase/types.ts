@@ -14,7 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      descontos_ufv: {
+        Row: {
+          created_at: string
+          curso: string | null
+          email: string
+          id: string
+          matricula: string | null
+          nome: string
+          terceirizado: boolean
+        }
+        Insert: {
+          created_at?: string
+          curso?: string | null
+          email: string
+          id?: string
+          matricula?: string | null
+          nome: string
+          terceirizado?: boolean
+        }
+        Update: {
+          created_at?: string
+          curso?: string | null
+          email?: string
+          id?: string
+          matricula?: string | null
+          nome?: string
+          terceirizado?: boolean
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
