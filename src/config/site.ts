@@ -50,9 +50,9 @@ export const siteConfig = {
 
   // Desconto para comunidade UFV (alunos, servidores e terceirizados)
   ufvDiscount: {
-    title: "É aluno ou servidor da UFV?",
-    text: "Você tem 10% de desconto na TrIA. Válido para os 100 primeiros.",
-    button: "Quero meu desconto",
+    title: "É da UFV? Ganhe 10% de desconto",
+    coupon: "TRILHAFIRST",
+    couponNote: "O cupom vale para as primeiras 100 compras. Garanta a sua trilha para não perder o desconto!",
   },
 
   // ID do Google Analytics
