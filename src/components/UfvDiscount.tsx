@@ -47,13 +47,11 @@ export function UfvDiscount({ dark = false }: { dark?: boolean }) {
           setStatus("idle");
           setOpen(true);
         }}
-        className={`mt-4 inline-flex flex-wrap items-center justify-center gap-x-2 gap-y-1 rounded-full px-4 py-2 text-sm transition-colors ${
-          dark ? "bg-white/10 text-white hover:bg-white/20" : "bg-[#eaf1f7] text-secondary hover:bg-[#dbe7f0]"
+        className={`mt-4 text-xs underline underline-offset-2 transition-opacity hover:opacity-80 ${
+          dark ? "text-white/80" : "text-secondary"
         }`}
       >
-        <span className="font-semibold">{d.title}</span>
-        <span>{d.text}</span>
-        <span className="font-semibold underline underline-offset-2">{d.button} →</span>
+        {d.title} →
       </button>
 
       <Dialog open={open} onOpenChange={setOpen}>
@@ -61,14 +59,31 @@ export function UfvDiscount({ dark = false }: { dark?: boolean }) {
           <DialogHeader>
             <DialogTitle>Desconto de 10% para a comunidade UFV</DialogTitle>
             <DialogDescription>
-              Preencha seus dados. Válido para os 100 primeiros pedidos.
+              Preencha seus dados para liberar seu cupom.
             </DialogDescription>
           </DialogHeader>
 
           {status === "ok" ? (
-            <p className="rounded-[10px] bg-[#eaf1f7] p-4 text-sm text-secondary">
-              Pedido recebido! Vamos conferir seus dados e enviar as instruções do desconto para o seu e-mail.
-            </p>
+            <div className="space-y-4 rounded-[10px] bg-[#eaf1f7] p-5 text-center">
+              <p className="text-sm text-secondary">Seu cupom de 10% de desconto:</p>
+              <button
+                type="button"
+                onClick={() => navigator.clipboard?.writeText(d.coupon)}
+                className="w-full rounded-[10px] border-2 border-dashed border-secondary bg-background px-4 py-3 font-titulo text-2xl font-bold tracking-widest text-secondary"
+                title="Clique para copiar"
+              >
+                {d.coupon}
+              </button>
+              <p className="text-sm text-foreground">{d.couponNote}</p>
+              <a
+                href={siteConfig.primaryCTA.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full rounded-[10px] bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground hover:bg-[#1a4667]"
+              >
+                Garantir minha trilha
+              </a>
+            </div>
           ) : status === "full" ? (
             <p className="rounded-[10px] bg-muted p-4 text-sm">
               As 100 vagas com desconto já foram preenchidas. Obrigado pelo interesse!
