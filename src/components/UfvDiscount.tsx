@@ -32,8 +32,26 @@ export function UfvDiscount({ dark = false }: { dark?: boolean }) {
       curso: curso.slice(0, 150) || null,
       terceirizado,
     });
-    if (error) setStatus(error.message.includes("LIMITE_ATINGIDO") ? "full" : "error");
-    else setStatus("ok");
+    if (error) {
+      setStatus(error.message.includes("LIMITE_ATINGIDO") ? "full" : "error");
+      return;
+    }
+    // Envia uma cópia para a planilha Google (não bloqueia o cupom se falhar)
+    if (d.googleSheetsUrl) {
+      fetch(d.googleSheetsUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({
+          nome,
+          email,
+          matricula: terceirizado ? "" : matricula,
+          curso,
+          terceirizado,
+        }),
+      }).catch(() => {});
+    }
+    setStatus("ok");
   }
 
   const input =

@@ -52,6 +52,9 @@ export const siteConfig = {
   ufvDiscount: {
     title: "É da UFV? Ganhe 10% de desconto",
     coupon: "TRILHAFIRST",
+    // Link do Apps Script da planilha Google que recebe os cadastros (deixe "" para desligar)
+    googleSheetsUrl:
+      "https://script.google.com/a/macros/ufv.br/s/AKfycbyH5Eormlwpk1ZU88mdPdLtuc8oRuBDBBaB83gmGKHObJs-o_zIYSbhDVpJz_H5__U/exec",
     couponNote: "O cupom vale para as primeiras 100 compras. Garanta a sua trilha para não perder o desconto!",
   },
 
