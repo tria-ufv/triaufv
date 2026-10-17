@@ -16,7 +16,7 @@ export const siteConfig = {
   // Troque o link aqui e ele muda em TODOS os lugares.
   primaryCTA: {
     label: "Garantir minha vaga",
-    href: "https://eventos.funarbe.org.br/en/tria",
+    href: "https://portalead.cead.ufv.br/saaf/portal/curso/ver/tria-trilha-formativa-de-programacao-visualizacao-de-dados-aprendizagem-de-maquina-e-inteligencia-artificial/",
   },
 
   secondaryCTA: {
