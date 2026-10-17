@@ -54,7 +54,7 @@ export const siteConfig = {
     coupon: "TRILHAFIRST",
     // Link do Apps Script da planilha Google que recebe os cadastros (deixe "" para desligar)
     googleSheetsUrl:
-      "https://script.google.com/a/macros/ufv.br/s/AKfycbyH5Eormlwpk1ZU88mdPdLtuc8oRuBDBBaB83gmGKHObJs-o_zIYSbhDVpJz_H5__U/exec",
+      "https://script.google.com/macros/s/AKfycbzW_b1xKZVtHAKkzNAEK6P4FkHkoUnFtz3KkWA3tPE5Ehk3gC9g7sjM_UBlbG2NCxAW/exec",
     couponNote: "O cupom vale para as primeiras 100 compras. Garanta a sua trilha para não perder o desconto!",
   },
 

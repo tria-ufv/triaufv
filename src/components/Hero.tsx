@@ -26,13 +26,7 @@ export function Hero() {
           {copy.hero.text}
         </p>
 
-        <p className="mt-8 text-lg font-semibold">
-          Trilha de Aprendizagem: {siteConfig.commercial.highlight} —{" "}
-          <span className="text-secondary">{siteConfig.commercial.price}</span>{" "}
-          <span className="font-normal text-muted-foreground">{siteConfig.commercial.installments}</span>
-        </p>
-
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
           <CtaButton href={siteConfig.primaryCTA.href}>{siteConfig.primaryCTA.label}</CtaButton>
           <CtaButton href={siteConfig.secondaryCTA.href} variant="secundario">
             {siteConfig.secondaryCTA.label}
