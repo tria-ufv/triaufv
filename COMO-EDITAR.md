@@ -50,13 +50,13 @@ Em `src/config/site.ts`:
 ```ts
 primaryCTA: {
   label: "Garantir minha vaga",
-  href: "https://eventos.funarbe.org.br/en/tria",  // <- cole aqui o link do checkout
+  href: "https://portalead.cead.ufv.br/saaf/portal/curso/ver/tria-trilha-formativa-de-programacao-visualizacao-de-dados-aprendizagem-de-maquina-e-inteligencia-artificial/",  // <- cole aqui o link do checkout
 },
 ```
 
 O botão aparece no topo, no hero e no final da página — mudar aqui muda em todos.
-Hoje ele leva para a página de compra da TrIA na Funarbe
-(`https://eventos.funarbe.org.br/en/tria`) e abre em uma nova aba.
+Hoje ele leva para a página oficial da TrIA no portal do CEAD/UFV
+(`https://portalead.cead.ufv.br/saaf/portal/curso/ver/tria-trilha-formativa-de-programacao-visualizacao-de-dados-aprendizagem-de-maquina-e-inteligencia-artificial/`) e abre em uma nova aba.
 
 ## 3. Mostrar preço, data e vagas
 
@@ -126,4 +126,4 @@ política de cancelamento, plataforma de e-mail e endpoint, analytics,
 autorização para usar as marcas UFV/DPI e o conteúdo final
 da Unidade 6 do Módulo 1.
 
-O link de compra já está ligado: `https://eventos.funarbe.org.br/en/tria`.
+O link de compra já está ligado: a página oficial da TrIA no portal do CEAD/UFV.
